@@ -5,4 +5,4 @@
 
 # Pre-requestics
   * mongodb installed 
-  * create db capital
+  * create db named  capital
