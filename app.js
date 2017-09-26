@@ -36,6 +36,6 @@ app.use('/api/tables', tables);
 app.use('/api/bookings', bookings);
 app.use('/api/reviews', reviews);
 
-app.listen(3000, function () {
-
+app.listen( process.env.PORT || 3000, function () {
+   console.log('helloo app started')
 });
