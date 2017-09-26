@@ -1,0 +1,23 @@
+restaurent
+    name : String { type: String, required: true, unique: true }
+    location : String 
+    created_date : Date { type: Date, default: Date.now }
+
+table
+   restaurent : Ref
+   table_number : Number // { type: String, required: true, unique: true }
+   capacity: Number // { reqiured: true}
+   is_booked: Boolean
+
+booking
+   table : Ref
+   created_date : Date // { type: Date, default: Date.now }
+   booked_from : Date
+   booked_to: Date
+   is_active: Boolean
+   
+
+reviews
+   restaurent : Ref
+   comment : [{ body: String, date: Date }]
+
