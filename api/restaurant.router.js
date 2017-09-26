@@ -9,6 +9,10 @@ router.use(function timeLog (req, res, next) {
   next();
 });
 
+/**
+ * get all restaurents
+ * @return {[Array]}
+ */
 router.get('/', function (req, res) {
 
   Restaurant.find({}, function (err, restaurant) {
@@ -18,6 +22,11 @@ router.get('/', function (req, res) {
   
 });
 
+/**
+ * get specific restaurent
+ * @param  id {string}
+ * @return {[Object]}
+ */
 router.get('/:id', function(req, res) {
 	Restaurant.findOne({ _id: req.params.id }, function(err, restaurant) {
 		console.log('single restaurant', restaurant);
@@ -25,6 +34,12 @@ router.get('/:id', function(req, res) {
 	});
 });
 
+/**
+ * create restaurant
+ * @param  name {[string]}
+ * @param  location {string}
+ * @return {[object]}
+ */
 router.post('/', function(req, res) {
 	
 	const data = {
@@ -39,6 +54,12 @@ router.post('/', function(req, res) {
 
 });
 
+/**
+ * update restaurant
+ * @param  name {string}
+ * @param  location {string}
+ * @return {object}
+ */
 router.put('/:id', function(req, res) {
 	const data = {
 		name: req.body.name,
@@ -50,6 +71,11 @@ router.put('/:id', function(req, res) {
 	});
 })
 
+/**
+ * delete restaurant
+ * @param  restaurentid{[string]}
+ * @return {[object]}
+ */
 router.delete('/:id', function(req, res) {
 
 	Restaurant.findByIdAndRemove({ _id: req.params.id }, function(err, restaurant) {
@@ -57,7 +83,12 @@ router.delete('/:id', function(req, res) {
 	});
 });
 
-// search by name and locatons
+
+/**
+ * search by name and locatons
+ * @param  search {[string]}
+ * @return {[object]}
+ */
 router.get('/search/restaurant', function(req, res) {
 	const searchText = req.query.search; 
     Restaurant.find({$text: {$search: searchText}}, function(err, restaurant) {

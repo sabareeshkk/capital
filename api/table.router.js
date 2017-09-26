@@ -3,7 +3,10 @@ const router = express.Router();
 
 const Table = require('../models/table');
 
-//get all tables
+/**
+ * get all tables
+ * @return {[array]}
+ */
 router.get('/', function(req, res) {
 
 	Table.find({}, function(err, tables) {
@@ -12,7 +15,11 @@ router.get('/', function(req, res) {
 	});
 });
 
-//get table by table id
+/**
+ * get table by id
+ * @param  tableid{string}
+ * @return {[type]}
+ */
 router.get('/:id', function(req, res) {
 	
 	Table.findOne({ _id: req.params.id }, function(err, table) {
@@ -21,7 +28,13 @@ router.get('/:id', function(req, res) {
 	});
 });
 
-//create table
+/**
+ * create new table
+ * @param  restaurant{[string]}
+ * @param  table_number{number}
+ * @param  capacity{number}
+ * @return {[object]}
+ */
 router.post('/', function(req, res) {
 	const data = {
 		restaurant: req.body.restaurant,
@@ -39,7 +52,12 @@ router.post('/', function(req, res) {
 	});
 })
 
-//update table
+/**
+ * update table  by id
+ * @param  table_number{[number]}
+ * @param  capacity{number}
+ * @return {[object]}
+ */
 router.put('/:id', function(req, res) {
 	const data = {
 		table_number: req.body.table_number,
@@ -51,7 +69,11 @@ router.put('/:id', function(req, res) {
 	});
 })
 
-//remove table
+/**
+ * delete table id
+ * @param  table id{}
+ * @return {[object]}
+ */
 router.delete('/:id', function(req, res) {
 	
 	Table.findByIdAndRemove({ _id: req.params.id }, function(err, restaurant) {
@@ -60,7 +82,11 @@ router.delete('/:id', function(req, res) {
 	});
 });
 
-//update table capacity
+/**
+ * update table capacity
+ * @param  table id{[string]}
+ * @return {[object]}
+ */
 router.put('/:id/capacity', function(req, res) {
 	const data = {
 		capacity: req.query.capacity
@@ -72,7 +98,12 @@ router.put('/:id/capacity', function(req, res) {
 	});
 })
 
-//search for table by capacity in restaurant
+/**	
+ * search table by capacity for a given restaurant
+ * @param  restaurant{[string]}
+ * @param  capacity{number}
+ * @return {[type]}
+ */
 router.get('/search/capacity', function(req, res) {
 	const query = {
 		restaurant: req.query.restaurant,
