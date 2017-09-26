@@ -88,9 +88,9 @@ router.post('/', function(req, res) {
  * @param  booking_id{[string]}
  * @return {[array]}
  */
-router.put('/cancel', function(req, res) {
+router.put('/:bookingId/cancel', function(req, res) {
 	const query = {
-		_id: req.params.booking_id,
+		_id: req.params.bookingId,
 	}
     
     Booking.findOneAndUpdate(query, { is_active: false }, { upsert: true }, function(err, booking) {
