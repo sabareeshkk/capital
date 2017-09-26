@@ -11,7 +11,9 @@ const reviews = require('./api/reviews.router');
 const app = express();
 
 //mongo db connection
-mongoose.connect('mongodb://localhost:27017/capital', {
+// mongodb://localhost:27017/capital
+// mongodb://<dbuser>:<dbpassword>@ds149934.mlab.com:49934/capital
+mongoose.connect('mongodb://sabari:abcd1234@ds149934.mlab.com:49934/capital', {
   useMongoClient: true,
 });
 

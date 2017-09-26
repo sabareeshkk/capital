@@ -7,6 +7,7 @@
   * mongodb installed 
   * create db named  capital
 
+# heroku host -- https://glacial-savannah-49803.herokuapp.com/
 
 # API- List
   + Restaurant Apis
