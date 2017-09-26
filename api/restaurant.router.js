@@ -87,7 +87,7 @@ router.delete('/:id', function(req, res) {
 /**
  * search by name and locatons
  * @param  search {[string]}
- * @return {[object]}
+ * @return {[]}
  */
 router.get('/search/restaurant', function(req, res) {
 	const searchText = req.query.search; 

@@ -6,3 +6,6 @@
 # Pre-requestics
   * mongodb installed 
   * create db named  capital
+
+
+# API- List
