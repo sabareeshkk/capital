@@ -27,6 +27,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/', function(req, res) {
+	res.json({status: "You are in"})
+});
+
 app.use('/api/restaurant', restaurant);
 app.use('/api/tables', tables);
 app.use('/api/bookings', bookings);
